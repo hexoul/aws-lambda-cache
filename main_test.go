@@ -9,10 +9,19 @@ import (
 func TestCache(t *testing.T) {
 	event := events.APIGatewayProxyRequest{}
 	event.QueryStringParameters = make(map[string]string)
-	event.QueryStringParameters["key"] = "0x25c317c8d0a63c122073ae52984e8477e7fbc322c93a9457c5579ee6e5a813b3"
+	event.QueryStringParameters["key"] = "test"
+	event.QueryStringParameters["val"] = "123"
 	resp, err := lambdaHandler(nil, event)
+	if err != nil {
+		t.Errorf("Failed to set")
+	}
+
+	event = events.APIGatewayProxyRequest{}
+	event.QueryStringParameters = make(map[string]string)
+	event.QueryStringParameters["key"] = "test"
+	resp, err = lambdaHandler(nil, event)
 	if resp.Body == "" || err != nil {
-		t.Errorf("Failed to start main")
+		t.Errorf("Failed to get")
 	}
 	t.Log(resp.Body)
 }

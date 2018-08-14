@@ -25,6 +25,7 @@ func lambdaHandler(ctx context.Context, request events.APIGatewayProxyRequest) (
 		if val == "" {
 			// In case of "get"
 			respBody = cacheMap[key]
+			cacheMap[key] = ""
 		} else if key != "" {
 			// In case of "set"
 			cacheMap[key] = val

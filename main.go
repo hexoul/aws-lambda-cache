@@ -19,8 +19,13 @@ func lambdaHandler(ctx context.Context, request events.APIGatewayProxyRequest) (
 	respBody := ""
 	statusCode := 200
 
-	if request.QueryStringParameters != nil {
-		key := request.QueryStringParameters["key"]
+	key := request.QueryStringParameters["key"]
+	if key == "" {
+		// Nothing to do
+	} else if request.Body != "" {
+		// In case of "set" with body
+		cacheMap[key] = request.Body
+	} else if request.QueryStringParameters != nil {
 		val := request.QueryStringParameters["val"]
 		if val == "" {
 			// In case of "get"

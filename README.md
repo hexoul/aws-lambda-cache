@@ -5,10 +5,18 @@
 Simple memory cache server on AWS lambda
 
 ## Contents
+- [Usage](#usage)
 - [Build](#build)
 - [Test](#test)
 - [Deploy](#deploy)
 - [License](#license)
+
+## Usage
+1. Set value
+  - GET: url?key=[key]&val=[val]
+  - POST: url?key=[key]
+2. Get value
+  - GET: url?key=[key]
 
 ## Build
 ```shell

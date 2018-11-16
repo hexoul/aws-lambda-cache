@@ -18,6 +18,10 @@ func init() {
 func lambdaHandler(ctx context.Context, request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 	respBody := ""
 	statusCode := 200
+	headers := map[string]string{
+		"Content-Type":                "application/json",
+		"Access-Control-Allow-Origin": "*",
+	}
 
 	key := request.QueryStringParameters["key"]
 	if key == "" {
@@ -37,7 +41,7 @@ func lambdaHandler(ctx context.Context, request events.APIGatewayProxyRequest) (
 		}
 	}
 
-	return events.APIGatewayProxyResponse{Body: respBody, StatusCode: statusCode}, nil
+	return events.APIGatewayProxyResponse{Body: respBody, Headers: headers, StatusCode: statusCode}, nil
 }
 
 func main() {

@@ -9,6 +9,10 @@ import (
 
 var (
 	cacheMap map[string]string
+	headers  = map[string]string{
+		"Content-Type":                "application/json",
+		"Access-Control-Allow-Origin": "*",
+	}
 )
 
 func init() {
@@ -16,10 +20,6 @@ func init() {
 }
 
 func lambdaHandler(ctx context.Context, request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-	headers := map[string]string{
-		"Content-Type":                "application/json",
-		"Access-Control-Allow-Origin": "*",
-	}
 	respBody := ""
 	statusCode := 200
 

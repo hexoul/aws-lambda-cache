@@ -12,9 +12,124 @@
   revision = "e630af386f8aad6ec9fc899b951cf62d37cfe56f"
   version = "v1.4.0"
 
+[[projects]]
+  branch = "master"
+  name = "github.com/chromedp/cdproto"
+  packages = [
+    ".",
+    "accessibility",
+    "animation",
+    "applicationcache",
+    "audits",
+    "browser",
+    "cachestorage",
+    "cast",
+    "cdp",
+    "css",
+    "database",
+    "debugger",
+    "deviceorientation",
+    "dom",
+    "domdebugger",
+    "domsnapshot",
+    "domstorage",
+    "emulation",
+    "fetch",
+    "headlessexperimental",
+    "heapprofiler",
+    "indexeddb",
+    "input",
+    "inspector",
+    "io",
+    "layertree",
+    "log",
+    "memory",
+    "network",
+    "overlay",
+    "page",
+    "performance",
+    "profiler",
+    "runtime",
+    "security",
+    "serviceworker",
+    "storage",
+    "systeminfo",
+    "target",
+    "testing",
+    "tethering",
+    "tracing"
+  ]
+  revision = "8e3eef48e6c806d0d3ca5be66f393661a191e2cd"
+
+[[projects]]
+  name = "github.com/chromedp/chromedp"
+  packages = [
+    ".",
+    "client",
+    "kb",
+    "runner"
+  ]
+  revision = "34591780d9d429c470ccf81a2760c40245fc823a"
+  version = "v0.1.2"
+
+[[projects]]
+  name = "github.com/disintegration/imaging"
+  packages = ["."]
+  revision = "0bd5694c78c9c3d9a3cd06a706a8f3c59296a9ac"
+  version = "v1.5.0"
+
+[[projects]]
+  name = "github.com/gorilla/websocket"
+  packages = ["."]
+  revision = "66b9c49e59c6c48f0ffce28c2d8b8a5678502c6d"
+  version = "v1.4.0"
+
+[[projects]]
+  name = "github.com/hexoul/go-coinmarketcap"
+  packages = [
+    ".",
+    "types",
+    "util"
+  ]
+  revision = "51b03395f37e39c0dccd1e13152d6f1130efcede"
+  version = "v1.3.2"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/knq/snaker"
+  packages = ["."]
+  revision = "2bc8a4db468777180ca38d551094b83073bed25f"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/knq/sysutil"
+  packages = ["."]
+  revision = "f05b59f0f3075ba1bc5701ef0df4393a05ebd0e7"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/mailru/easyjson"
+  packages = [
+    ".",
+    "buffer",
+    "jlexer",
+    "jwriter"
+  ]
+  revision = "60711f1a8329503b04e1c88535f419d0bb440bff"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/image"
+  packages = [
+    "bmp",
+    "tiff",
+    "tiff/lzw"
+  ]
+  revision = "cd38e8056d9b27bb2f265effa37fb0ea6b8a7f0f"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "3375957ebac467c0b60004a3901209363670a2ee730d5474c3d1ad1b121325bd"
+  inputs-digest = "81487b809f08c01938f5000585aa2b7427ace735dd60f125b4c9973c0456245a"
   solver-name = "gps-cdcl"
   solver-version = 1

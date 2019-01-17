@@ -27,13 +27,13 @@ var (
 	}
 	cacheMap map[string]string
 
-	lastUpdatedPrice time.Time
+	lastPriceUpdated time.Time
 	lastPriceInfo    string
 )
 
 func init() {
 	cacheMap = make(map[string]string)
-	lastUpdatedPrice = time.Now().AddDate(0, 0, -1)
+	lastPriceUpdated = time.Now().AddDate(0, 0, -1)
 }
 
 func cache(request events.APIGatewayProxyRequest) (respBody string) {
@@ -56,17 +56,15 @@ func cache(request events.APIGatewayProxyRequest) (respBody string) {
 }
 
 func price() (respBody string) {
-	if time.Now().Sub(lastUpdatedPrice).Minutes() < 1 {
+	if time.Now().Sub(lastPriceUpdated).Minutes() < 1 {
 		return lastPriceInfo
 	}
+	lastPriceUpdated = time.Now()
 	if data, err := cmc.GetInstanceWithKey(cmcAPIKey).CryptoMarketQuotesLatest(&types.Options{
 		Symbol:  targetSymbol,
 		Convert: targetQuotes,
 	}); err == nil {
 		for _, v := range data.CryptoMarket {
-			if last, err := time.Parse(time.RFC3339, v.Quote["USD"].LastUpdated); err == nil {
-				lastUpdatedPrice = last
-			}
 			if b, bErr := json.Marshal(v); bErr == nil {
 				lastPriceInfo = string(b)
 			}

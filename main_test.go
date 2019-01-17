@@ -40,6 +40,9 @@ func TestPrice(t *testing.T) {
 		t.Error("Failed to get price")
 	}
 	t.Log(resp.Body)
+
+	lambdaHandler(nil, event)
+	lambdaHandler(nil, event)
 }
 
 func TestCmcAPI(t *testing.T) {
